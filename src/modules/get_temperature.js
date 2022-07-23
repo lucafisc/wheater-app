@@ -14,8 +14,6 @@ async function getJson(city) {
         "&APPID=9486ff66fc7c11980fc9ee8c66c285ca"
     );
     let json = await response.json();
-    console.log("fired here too");
-
     pubsub.publish("new-temperature", json);
   } catch (error) {
     console.log(error);
