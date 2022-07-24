@@ -23,6 +23,22 @@
 }
 
 .info-card {
-    border: var(--border);
     height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.card-temp {
+    font-family: "savateregular";
+    color: var(--main-color);
+    font-size: 10vw;
+}
+
+.card-text {
+    font-family: 'Bitter', serif;
+    color: var(--main-color);
+    font-size: 4vw;
 }
