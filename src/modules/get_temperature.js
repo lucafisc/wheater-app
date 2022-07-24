@@ -12,7 +12,7 @@ async function getCurrent(city) {
   const currentURL = `http://api.openweathermap.org/data/2.5/weather?q=${city}&APPID=${apikey}`;
 
   try {
-    let response = await fetch(currentURL);
+    let response = await fetch(currentURL, { mode: "cors" });
     let json = await response.json();
     pubsub.publish("new-temperature", json);
   } catch (error) {
