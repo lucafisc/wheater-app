@@ -3,7 +3,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    height: fit-content;
+    height: 30vw;
 }
 
 .minus-symbol,
@@ -18,14 +18,12 @@
 .minus-symbol {
     font-size: 25vw;
     margin-left: auto;
-    bottom: -50%;
 }
 
 .current-temperature {
     font-size: 50vw;
     transform: scaleY(0.5);
-    transform-origin: 0 0;
-    margin-bottom: -33%;
+    /* transform-origin: 0 0; */
 }
 
 .degrees-symbol {
