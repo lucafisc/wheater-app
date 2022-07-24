@@ -1,0 +1,23 @@
+.input-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 35vh;
+}
+
+.city-input {
+    color: var(--gray);
+    font-family: 'Bitter', serif;
+    text-align: center;
+    font-size: 5vw;
+    cursor: pointer;
+
+    border: 3px solid var(--gray);
+    border-radius: var(--radius);
+    outline: none;
+
+    transition: var(--color-transition);
+    height: 15vw;
+    width: 40vw;
+    transition: width 0.2s ease-in;
+}

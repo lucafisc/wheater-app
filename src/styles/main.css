@@ -34,45 +34,21 @@
     box-sizing: border-box;
 }
 
+:root {
+    --main-color: white;
+    --border: 3px solid var(--main-color);
+    --radius: 40px;
+    --color-transition: color 2s ease-in;
+    --gray: rgb(143, 143, 143);
+}
+
 .hidden {
     opacity: 0;
 }
 
-.city-input {
-    font-family: 'Bitter', serif;
-}
-
-.current-container {
-    margin: 0 auto;
-    background-color: darkkhaki;
+.content {
+    height: 100vh;
     display: flex;
+    flex-direction: column;
     justify-content: space-between;
-    align-items: center;
-    height: fit-content;
-}
-
-.minus-symbol,
-.current-temperature,
-.degrees-symbol {
-    font-family: "savateregular";
-    transition: opacity 0.2s ease-in;
-}
-
-.minus-symbol {
-    font-size: 25vw;
-    margin-left: auto;
-    bottom: -50%;
-}
-
-.current-temperature {
-    font-size: 50vw;
-    transform: scaleY(0.5);
-    transform-origin: 0 0;
-    margin-bottom: -33%;
-}
-
-.degrees-symbol {
-    font-size: 10vw;
-    margin-right: auto;
-    align-self: flex-start;
 }

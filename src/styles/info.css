@@ -1,0 +1,28 @@
+.info-container {
+    height: 33vh;
+    background-color: white;
+    margin: 6vh;
+    border: var(--border);
+    border-radius: var(--radius);
+    transition: var(--color-transition);
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+
+}
+
+.hour-forecast,
+.week-forecast {
+    padding-left: 7vw;
+    display: grid;
+    grid-template-columns: repeat(7, 20vw);
+    overflow: scroll;
+}
+
+.hour-forecast {
+    border-bottom: var(--border);
+}
+
+.info-card {
+    border: var(--border);
+    height: 100%;
+}

@@ -7,10 +7,12 @@ export const checkData = () => {
 };
 
 function extractData(data) {
+  console.log(data);
   let current = convert(data.main.temp);
-
+  let location = data.name.toLowerCase();
   const tempList = tempFactory({
     current: current,
+    location: location,
   });
   console.log("fired data");
 
@@ -26,7 +28,8 @@ function convert(tempInK) {
   }
 }
 
-const tempFactory = ({ current = "", tags = [""] }) => ({
+const tempFactory = ({ current = "", location = "", tags = [""] }) => ({
   current,
+  location,
   tags,
 });

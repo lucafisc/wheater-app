@@ -1,0 +1,35 @@
+.current-container {
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: fit-content;
+}
+
+.minus-symbol,
+.current-temperature,
+.degrees-symbol {
+    font-family: "savateregular";
+    transition: all 1s ease-in;
+    /* transition: var(--color-transition); */
+    color: var(--main-color);
+}
+
+.minus-symbol {
+    font-size: 25vw;
+    margin-left: auto;
+    bottom: -50%;
+}
+
+.current-temperature {
+    font-size: 50vw;
+    transform: scaleY(0.5);
+    transform-origin: 0 0;
+    margin-bottom: -33%;
+}
+
+.degrees-symbol {
+    font-size: 10vw;
+    margin-right: auto;
+    align-self: flex-start;
+}
