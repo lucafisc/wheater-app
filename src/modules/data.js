@@ -32,7 +32,7 @@ function extractData(data) {
   let currentTemp = Math.round(data.current.temp);
 
   let dailyForecast = [];
-  for (let i = 0; i < 6; i++) {
+  for (let i = 0; i < 7; i++) {
     let temp = Math.round(data.daily[i].temp.day);
     dailyForecast.push(temp);
   }
