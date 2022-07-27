@@ -37,7 +37,8 @@
     font-size: 10vw;
 }
 
-.card-text {
+.card-text-hourly,
+.card-text-daily {
     font-family: 'Bitter', serif;
     color: var(--main-color);
     font-size: 4vw;

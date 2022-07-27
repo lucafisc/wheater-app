@@ -13,14 +13,17 @@ export const DOMRender = () => {
   });
 
   pubsub.subscribe("render", (tempList) => {
-    let color = newColor(tempList.current);
-    const root = document.documentElement;
-    root.style.setProperty("--main-color", color);
-
+    newMainColor(tempList);
     showGradient();
     updateDOM(tempList);
   });
 };
+
+function newMainColor(tempList) {
+  let color = newColor(tempList.current);
+  const root = document.documentElement;
+  root.style.setProperty("--main-color", color);
+}
 
 function updateDOM(props) {
   updateCurrent(props);
@@ -54,13 +57,22 @@ function updateInfo(props) {
   infoContainer.classList.remove("hidden");
 
   let hourTemps = infoContainer.querySelectorAll(".card-temp-hourly");
+  let hours = infoContainer.querySelectorAll(".card-text-hourly");
   for (let i = 0; i < hourTemps.length; i++) {
     let color = newColor(props.hourly[i]);
     hourTemps[i].textContent = props.hourly[i];
     hourTemps[i].style.color = color;
+    let hour = props.time + i + 1;
+    if (hour >= 24) {
+      hour = hour - 24;
+    }
+    hours[i].textContent = hour + ":00";
+    hours[i].style.color = color;
   }
 
   let dayTemps = infoContainer.querySelectorAll(".card-temp-daily");
+  let days = infoContainer.querySelectorAll(".card-text-daily");
+
   for (let i = 0; i < dayTemps.length; i++) {
     let color = newColor(props.daily[i]);
     dayTemps[i].textContent = props.daily[i];
