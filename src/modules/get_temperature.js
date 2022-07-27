@@ -11,7 +11,7 @@ const apikey = "9486ff66fc7c11980fc9ee8c66c285ca";
 async function getForecast(city) {
   // const currentURL = `https://api.openweathermap.org/data/2.5/weather?q=${city}&APPID=${apikey}`;
 
-  const latlonURL = `http://api.openweathermap.org/geo/1.0/direct?q=${city}&limit=5&appid=${apikey}`;
+  const latlonURL = `https://api.openweathermap.org/geo/1.0/direct?q=${city}&limit=5&appid=${apikey}`;
   try {
     let responseGeo = await fetch(latlonURL, { mode: "cors" });
     let geo = await responseGeo.json();
