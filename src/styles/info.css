@@ -13,7 +13,10 @@
 .week-forecast {
     padding-left: 7vw;
     display: grid;
-    grid-template-columns: repeat(7, 20vw);
+    /* grid-template-columns: 20vw; */
+    grid-template-columns: 20vw;
+    grid-auto-columns: 20vw;
+    grid-auto-flow: column;
     overflow: scroll;
 }
 
@@ -30,15 +33,13 @@
     gap: 10px;
 }
 
-.card-temp-hourly,
-.card-temp-daily {
+.card-temp {
     font-family: "savateregular";
     color: var(--main-color);
     font-size: 10vw;
 }
 
-.card-text-hourly,
-.card-text-daily {
+.card-text {
     font-family: 'Bitter', serif;
     color: var(--main-color);
     font-size: 4vw;

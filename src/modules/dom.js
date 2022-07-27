@@ -56,27 +56,76 @@ function updateInfo(props) {
   const infoContainer = document.getElementById("info-container");
   infoContainer.classList.remove("hidden");
 
-  let hourTemps = infoContainer.querySelectorAll(".card-temp-hourly");
-  let hours = infoContainer.querySelectorAll(".card-text-hourly");
-  for (let i = 0; i < hourTemps.length; i++) {
-    let color = newColor(props.hourly[i]);
-    hourTemps[i].textContent = props.hourly[i];
-    hourTemps[i].style.color = color;
-    let hour = props.time + i + 1;
-    if (hour >= 24) {
-      hour = hour - 24;
+  const hourForecast = document.querySelector(".hour-forecast");
+  removeAllChildren(hourForecast);
+  for (let i = 0; i < props.hourly.length; i++) {
+    let temp = props.hourly[i];
+    let time = props.time + i + 1;
+    if (time >= 24) {
+      time = time - 24;
     }
-    hours[i].textContent = hour + ":00";
-    hours[i].style.color = color;
+    time = time + ":00";
+
+    let colorCurrent = newColor(temp);
+    let colorNext = newColor(props.hourly[i + 1]);
+    if (!props.hourly[i + 1]) {
+      colorNext = colorCurrent;
+    }
+    let colorText = "white";
+
+    let infoCard = createHourForecast(
+      temp,
+      time,
+      colorCurrent,
+      colorNext,
+      colorText
+    );
+    hourForecast.append(infoCard);
   }
 
-  let dayTemps = infoContainer.querySelectorAll(".card-temp-daily");
-  let days = infoContainer.querySelectorAll(".card-text-daily");
-  for (let i = 0; i < dayTemps.length; i++) {
-    let color = newColor(props.daily[i]);
-    dayTemps[i].textContent = props.daily[i];
-    dayTemps[i].style.color = color;
-    days[i].textContent = props.week[i];
-    days[i].style.color = color;
+  const weekForecast = document.querySelector(".week-forecast");
+  removeAllChildren(weekForecast);
+  for (let i = 0; i < props.daily.length; i++) {
+    let temp = props.daily[i];
+    let day = props.week[i];
+    let colorText = newColor(temp);
+    let color1 = "white";
+    let color2 = "white";
+
+    let infoCard = createHourForecast(temp, day, color1, color2, colorText);
+    weekForecast.append(infoCard);
   }
+}
+
+function removeAllChildren(parent) {
+  while (parent.firstChild) {
+    parent.removeChild(parent.firstChild);
+  }
+}
+
+function createHourForecast(temp, time, color1, color2, textColor) {
+  const infoCard = document.createElement("div");
+  const cardTemp = document.createElement("p");
+  const cardText = document.createElement("p");
+
+  infoCard.classList.add("info-card");
+  cardTemp.classList.add("card-temp");
+  cardText.classList.add("card-text");
+
+  cardTemp.textContent = temp;
+  cardText.textContent = time;
+  cardTemp.style.color = textColor;
+  cardText.style.color = textColor;
+
+  console.log(color1);
+  console.log(color2);
+
+  if (color1 !== color2) {
+    infoCard.style.background = `linear-gradient(0.25turn,${color1}, ${color2})`;
+  } else {
+    infoCard.style.background = color1;
+  }
+
+  infoCard.append(cardTemp, cardText);
+  return infoCard;
 }

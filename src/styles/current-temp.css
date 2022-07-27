@@ -28,6 +28,7 @@
 
 .degrees-symbol {
     font-size: 10vw;
+    padding-right: 2vw;
     margin-right: auto;
     align-self: flex-start;
 }
