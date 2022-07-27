@@ -30,7 +30,8 @@
     gap: 10px;
 }
 
-.card-temp {
+.card-temp-hourly,
+.card-temp-daily {
     font-family: "savateregular";
     color: var(--main-color);
     font-size: 10vw;

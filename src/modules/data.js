@@ -1,20 +1,32 @@
 import { pubsub } from "./pubsub.js";
 
 export const checkData = () => {
-  pubsub.subscribe("new-temperature", (data) => {
+  pubsub.subscribe("new-data", (data) => {
     extractData(data);
   });
 };
 
 function extractData(data) {
   console.log(data);
-  let current = convert(data.main.temp);
-  let location = data.name.toLowerCase();
+  let currentTemp = Math.round(data.current.temp);
+
+  let dailyForecast = [];
+  for (let i = 0; i < 6; i++) {
+    let temp = Math.round(data.daily[i].temp.day);
+    dailyForecast.push(temp);
+  }
+
+  let hourlyForecast = [];
+  for (let i = 0; i < 23; i++) {
+    let temp = Math.round(data.hourly[i].temp);
+    hourlyForecast.push(temp);
+  }
+
   const tempList = tempFactory({
-    current: current,
-    location: location,
+    current: currentTemp,
+    daily: dailyForecast,
+    hourly: hourlyForecast,
   });
-  console.log("fired data");
 
   pubsub.publish("render", tempList);
 }
@@ -28,8 +40,8 @@ function convert(tempInK) {
   }
 }
 
-const tempFactory = ({ current = "", location = "", tags = [""] }) => ({
+const tempFactory = ({ current = "", daily = "", hourly = "" }) => ({
   current,
-  location,
-  tags,
+  daily,
+  hourly,
 });

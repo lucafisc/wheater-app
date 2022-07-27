@@ -13,7 +13,10 @@ export const DOMRender = () => {
   });
 
   pubsub.subscribe("render", (tempList) => {
-    newColor(tempList);
+    let color = newColor(tempList.current);
+    const root = document.documentElement;
+    root.style.setProperty("--main-color", color);
+
     showGradient();
     updateDOM(tempList);
   });
@@ -35,38 +38,10 @@ function updateCurrent(props) {
   }
 }
 
-function newColor(props) {
-  const root = document.documentElement;
-
-  let mainColor;
-  if (props.current > 40) {
-    mainColor = "hsl(12deg 96% 47%)";
-  } else if (props.current <= 40 && props.current > 35) {
-    mainColor = "hsl(27deg 96% 47%)";
-  } else if (props.current <= 35 && props.current > 30) {
-    mainColor = "hsl(42deg 96% 47%)";
-  } else if (props.current <= 30 && props.current > 25) {
-    mainColor = "hsl(56deg 96% 47%)";
-  } else if (props.current <= 25 && props.current > 20) {
-    mainColor = "hsl(84deg 96% 47%)";
-  } else if (props.current <= 20 && props.current > 15) {
-    mainColor = "hsl(155deg 96% 47%)";
-  } else if (props.current <= 15 && props.current > 10) {
-    mainColor = "hsl(188deg 96% 47%)";
-  } else if (props.current <= 10 && props.current > 5) {
-    mainColor = "hsl(199deg 96% 47%)";
-  } else if (props.current <= 5 && props.current > 0) {
-    mainColor = "hsl(212deg 96% 47%)";
-  } else if (props.current <= 0 && props.current > -5) {
-    mainColor = "hsl(220deg 96% 47%)";
-  } else if (props.current <= -5 && props.current > -10) {
-    mainColor = "hsl(232deg 96% 47%)";
-  } else if (props.current <= -10 && props.current > -20) {
-    mainColor = "hsl(242deg 96% 47%)";
-  } else if (props.current <= -20) {
-    mainColor = "hsl(254deg 96% 47%)";
-  }
-  root.style.setProperty("--main-color", mainColor);
+function newColor(temp) {
+  let hue = 220 - temp * 6;
+  let mainColor = `hsl(${hue}deg 96% 47%)`;
+  return mainColor;
 }
 
 function showGradient() {
@@ -77,4 +52,18 @@ function showGradient() {
 function updateInfo(props) {
   const infoContainer = document.getElementById("info-container");
   infoContainer.classList.remove("hidden");
+
+  let hourTemps = infoContainer.querySelectorAll(".card-temp-hourly");
+  for (let i = 0; i < hourTemps.length; i++) {
+    let color = newColor(props.hourly[i]);
+    hourTemps[i].textContent = props.hourly[i];
+    hourTemps[i].style.color = color;
+  }
+
+  let dayTemps = infoContainer.querySelectorAll(".card-temp-daily");
+  for (let i = 0; i < dayTemps.length; i++) {
+    let color = newColor(props.daily[i]);
+    dayTemps[i].textContent = props.daily[i];
+    dayTemps[i].style.color = color;
+  }
 }
