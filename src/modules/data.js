@@ -2,6 +2,8 @@ import { pubsub } from "./pubsub.js";
 
 import { format, parseISO, formatISO } from "date-fns";
 
+const daysOfWeek = ["sun", "mon", "tue", "wed", "thu", "fri", "sat"];
+
 export const checkData = () => {
   pubsub.subscribe("new-data", (data) => {
     extractData(data);
@@ -21,9 +23,11 @@ function extractData(data) {
     timeZone: data.timezone,
     dateStyle: "full",
   });
-  localDay = localDay.slice(0, 3);
-  console.log(localDay);
-  console.log(localTime);
+  localDay = localDay.slice(0, 3).toLowerCase();
+  const index = daysOfWeek.findIndex((i) => i === localDay) + 1;
+  let currentWeek = daysOfWeek.slice(index);
+  let remainingDays = daysOfWeek.slice(0, index);
+  remainingDays.forEach((day) => currentWeek.push(day));
 
   let currentTemp = Math.round(data.current.temp);
 
@@ -44,7 +48,7 @@ function extractData(data) {
     daily: dailyForecast,
     hourly: hourlyForecast,
     time: localTime,
-    day: localDay,
+    week: currentWeek,
   });
 
   pubsub.publish("render", tempList);
@@ -64,11 +68,11 @@ const tempFactory = ({
   daily = "",
   hourly = "",
   time = "",
-  day = "",
+  week = "",
 }) => ({
   current,
   daily,
   hourly,
   time,
-  day,
+  week,
 });

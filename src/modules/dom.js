@@ -72,10 +72,11 @@ function updateInfo(props) {
 
   let dayTemps = infoContainer.querySelectorAll(".card-temp-daily");
   let days = infoContainer.querySelectorAll(".card-text-daily");
-
   for (let i = 0; i < dayTemps.length; i++) {
     let color = newColor(props.daily[i]);
     dayTemps[i].textContent = props.daily[i];
     dayTemps[i].style.color = color;
+    days[i].textContent = props.week[i];
+    days[i].style.color = color;
   }
 }
