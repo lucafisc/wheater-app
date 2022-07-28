@@ -204,12 +204,14 @@ function createHourForecast(temp, time, icon, color1, color2) {
 function createDailyForecast(max, min, day, colorMin, colorMax, icon) {
   const infoCard = document.createElement("div");
   const cardIcon = document.createElement("img");
+  const tempContainer = document.createElement("div");
   const cardMin = document.createElement("p");
   const cardMax = document.createElement("p");
   const cardText = document.createElement("p");
 
   infoCard.classList.add("daily-card");
   cardIcon.classList.add("daily-icon");
+  tempContainer.classList.add("temp-container");
   cardMin.classList.add("card-temp", "temp-min");
   cardMax.classList.add("card-temp");
   cardText.classList.add("daily-text");
@@ -219,6 +221,7 @@ function createDailyForecast(max, min, day, colorMin, colorMax, icon) {
   cardMax.textContent = max;
   cardText.textContent = day;
 
-  infoCard.append(cardIcon, cardText, cardMax, cardMin);
+  tempContainer.append(cardMax, cardMin);
+  infoCard.append(cardIcon, cardText, tempContainer);
   return infoCard;
 }

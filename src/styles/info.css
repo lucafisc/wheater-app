@@ -79,10 +79,15 @@
     margin-right: auto;
 }
 
+.temp-container {
+    display: flex;
+    align-items: baseline;
+}
+
 .daily-icon {
     width: 12vw;
     filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(288deg) brightness(102%) contrast(102%);
-    padding-right: 10px;
+    padding-right: 15px;
 }
 
 .temp-min {
