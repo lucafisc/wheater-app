@@ -16,16 +16,11 @@
     grid-auto-columns: 20vw;
     grid-auto-flow: column;
     overflow: scroll;
+    margin: 18px;
+    border-radius: 20px;
 }
 
-.week-forecast {
-    height: 100vh;
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-auto-columns: 50px;
-    grid-auto-flow: row;
-    overflow: scroll;
-}
+
 
 .info-card {
     height: 100%;
@@ -51,4 +46,45 @@
     font-family: 'Bitter', serif;
     font-size: 3.5vw;
     color: var(--color-white);
+}
+
+.week-bg {
+    height: 100vh;
+    padding: 18px;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, var(--main-color) 30%, var(--main-color) 100%);
+}
+
+.week-forecast {
+    height: 100%;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-auto-columns: 50px;
+    grid-auto-flow: row;
+    border: var(--border-white);
+    border-radius: 20px;
+}
+
+
+.daily-card {
+    display: flex;
+    padding: 0 20px;
+    align-items: center;
+
+}
+
+.daily-text {
+    font-family: 'Bitter', serif;
+    font-size: 4.5vw;
+    color: var(--color-white);
+    margin-right: auto;
+}
+
+.daily-icon {
+    width: 12vw;
+    filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(288deg) brightness(102%) contrast(102%);
+    padding-right: 10px;
+}
+
+.temp-min {
+    font-size: 5.5vw;
 }

@@ -209,19 +209,16 @@ function createDailyForecast(max, min, day, colorMin, colorMax, icon) {
   const cardText = document.createElement("p");
 
   infoCard.classList.add("daily-card");
-  cardIcon.classList.add("card-icon");
-  cardMin.classList.add("card-temp");
+  cardIcon.classList.add("daily-icon");
+  cardMin.classList.add("card-temp", "temp-min");
   cardMax.classList.add("card-temp");
-  cardText.classList.add("card-text");
+  cardText.classList.add("daily-text");
 
   cardIcon.src = getIconSrc(icon);
-  cardMin.textContent = min;
+  cardMin.textContent = "/" + min;
   cardMax.textContent = max;
   cardText.textContent = day;
 
-  cardMin.style.color = colorMin;
-  cardMax.style.color = colorMax;
-
-  infoCard.append(cardIcon, cardMin, cardMax, cardText);
+  infoCard.append(cardIcon, cardText, cardMax, cardMin);
   return infoCard;
 }
