@@ -14,13 +14,17 @@
 .noise-right {
     position: fixed;
     transition: background 2s ease-in;
+    z-index: -999;
 }
 
-.gradient-top,
-.gradient-bottom,
-.noise-top,
-.noise-bottom {
+/* .gradient-top,
+.gradient-bottom, {
     height: 5vh;
+    width: 100%;
+} */
+
+.gradient-top {
+    height: 50vh;
     width: 100%;
 }
 

@@ -11,8 +11,6 @@ export const checkData = () => {
 };
 
 function extractData(data) {
-  console.log(data);
-
   let localTime = new Date().toLocaleString("de-DE", {
     timeZone: data.timezone,
     timeStyle: "short",
@@ -30,49 +28,59 @@ function extractData(data) {
   remainingDays.forEach((day) => currentWeek.push(day));
 
   let currentTemp = Math.round(data.current.temp);
+  let iconCode = data.current.weather[0].icon;
 
-  let dailyForecast = [];
+  let dailyMax = [];
+  let dailyMin = [];
+  let dailyIcons = [];
   for (let i = 0; i < 7; i++) {
-    let temp = Math.round(data.daily[i].temp.day);
-    dailyForecast.push(temp);
+    let min = Math.round(data.daily[i].temp.min);
+    let max = Math.round(data.daily[i].temp.max);
+    dailyMax.push(max);
+    dailyMin.push(min);
+    dailyIcons.push(data.daily[i].weather[0].icon);
   }
 
   let hourlyForecast = [];
+  let hourlyIcons = [];
   for (let i = 0; i < 23; i++) {
     let temp = Math.round(data.hourly[i].temp);
     hourlyForecast.push(temp);
+    hourlyIcons.push(data.hourly[i].weather[0].icon);
   }
 
   const tempList = tempFactory({
     current: currentTemp,
-    daily: dailyForecast,
+    iconCode: iconCode,
+    dailyMax: dailyMax,
+    dailyMin: dailyMin,
+    dailyIcons: dailyIcons,
     hourly: hourlyForecast,
+    hourlyIcons: hourlyIcons,
     time: localTime,
     week: currentWeek,
   });
-
   pubsub.publish("render", tempList);
-}
-
-function convert(tempInK) {
-  const kelvins = 273.15;
-  const tempUnits = "celcius";
-  if (tempUnits === "celcius") {
-    let tempInC = tempInK - kelvins;
-    return Math.round(tempInC);
-  }
 }
 
 const tempFactory = ({
   current = "",
-  daily = "",
+  iconCode = "",
+  dailyMax = "",
+  dailyMin = "",
+  dailyIcons = "",
   hourly = "",
+  hourlyIcons = "",
   time = "",
   week = "",
 }) => ({
   current,
-  daily,
+  iconCode,
+  dailyMax,
+  dailyMin,
+  dailyIcons,
   hourly,
+  hourlyIcons,
   time,
   week,
 });

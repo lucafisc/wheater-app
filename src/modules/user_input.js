@@ -32,7 +32,7 @@ export const userInput = () => {
   // };
 
   pubsub.subscribe("render", (tempList) => {
-    inputField.style.border = "var(--border)";
-    inputField.style.color = "var(--main-color)";
+    inputField.style.border = "var(--border-white)";
+    inputField.style.color = "var(--color-white)";
   });
 };

@@ -26,7 +26,13 @@
     "webpack-cli": "^4.10.0"
   },
   "dependencies": {
+    "colortranslator": "^1.9.2",
+    "css-filter-converter": "^1.0.108",
     "date-fns": "^2.29.1",
+    "extract-values": "^0.1.2",
+    "hsl-to-hex": "^1.0.0",
+    "hsl-to-hex-simple": "^1.0.4",
+    "pipetteur": "^2.0.3",
     "PubSub": "^4.0.0"
   }
 }

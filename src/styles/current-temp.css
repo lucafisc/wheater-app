@@ -1,3 +1,15 @@
+.icon-container {
+    margin: 0 auto;
+}
+
+.main-icon {
+    color: var(--main-color);
+    width: 25vw;
+    filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(288deg) brightness(102%) contrast(102%);
+    -webkit-animation: pulsate-bck 5s ease-in-out infinite both;
+    animation: pulsate-bck 5s ease-in-out infinite both;
+}
+
 .current-container {
     margin: 0 auto;
     display: flex;
@@ -31,4 +43,40 @@
     padding-right: 2vw;
     margin-right: auto;
     align-self: flex-start;
+}
+
+
+
+@-webkit-keyframes pulsate-bck {
+    0% {
+        -webkit-transform: scale(1);
+        transform: scale(1);
+    }
+
+    50% {
+        -webkit-transform: scale(1.15);
+        transform: scale(1.15);
+    }
+
+    100% {
+        -webkit-transform: scale(1);
+        transform: scale(1);
+    }
+}
+
+@keyframes pulsate-bck {
+    0% {
+        -webkit-transform: scale(1);
+        transform: scale(1);
+    }
+
+    50% {
+        -webkit-transform: scale(1.15);
+        transform: scale(1.15);
+    }
+
+    100% {
+        -webkit-transform: scale(1);
+        transform: scale(1);
+    }
 }

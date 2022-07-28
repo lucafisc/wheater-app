@@ -9,19 +9,22 @@
 
 }
 
-.hour-forecast,
-.week-forecast {
-    padding-left: 7vw;
+.hour-forecast {
+    height: 45vw;
     display: grid;
-    /* grid-template-columns: 20vw; */
     grid-template-columns: 20vw;
     grid-auto-columns: 20vw;
     grid-auto-flow: column;
     overflow: scroll;
 }
 
-.hour-forecast {
-    border-bottom: var(--border);
+.week-forecast {
+    height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-auto-columns: 50px;
+    grid-auto-flow: row;
+    overflow: scroll;
 }
 
 .info-card {
@@ -33,14 +36,19 @@
     gap: 10px;
 }
 
+.card-icon {
+    width: 8vw;
+    filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(288deg) brightness(102%) contrast(102%);
+}
+
 .card-temp {
     font-family: "savateregular";
-    color: var(--main-color);
+    color: var(--color-white);
     font-size: 10vw;
 }
 
 .card-text {
     font-family: 'Bitter', serif;
-    color: var(--main-color);
-    font-size: 4vw;
+    font-size: 3.5vw;
+    color: var(--color-white);
 }
