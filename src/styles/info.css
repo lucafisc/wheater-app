@@ -100,9 +100,11 @@
         height: 200px;
         grid-template-columns: 150px;
         grid-auto-columns: 150px;
+        border: var(--border-white);
     }
 
-    .card-icon {
+    .card-icon,
+    .daily-icon {
         width: 50px;
     }
 
@@ -110,7 +112,8 @@
         font-size: 50px;
     }
 
-    .card-text {
+    .card-text,
+    .daily-text {
         font-size: 25px;
     }
 
@@ -125,5 +128,9 @@
         margin: 0 100px;
         height: 200px;
         background: none;
+    }
+
+    .daily-card {
+        flex-direction: column;
     }
 }
