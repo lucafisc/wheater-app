@@ -93,3 +93,37 @@
 .temp-min {
     font-size: 5.5vw;
 }
+
+@media only screen and (min-width: 600px) {
+    .hour-forecast {
+        grid-area: hourly;
+        height: 200px;
+        grid-template-columns: 150px;
+        grid-auto-columns: 150px;
+    }
+
+    .card-icon {
+        width: 50px;
+    }
+
+    .card-temp {
+        font-size: 50px;
+    }
+
+    .card-text {
+        font-size: 25px;
+    }
+
+    .week-forecast {
+        height: 100%;
+        grid-template-columns: 150px;
+        grid-auto-columns: 150px;
+        grid-auto-flow: column;
+    }
+
+    .week-bg {
+        margin: 0 100px;
+        height: 200px;
+        background: none;
+    }
+}

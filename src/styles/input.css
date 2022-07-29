@@ -23,3 +23,16 @@
     height: 30px;
     width: 100%;
 }
+
+@media only screen and (min-width: 600px) {
+    .input-container {
+        grid-area: input;
+        align-self: auto;
+    }
+
+    .city-input {
+        max-width: 200px;
+        font-size: 20px;
+    }
+
+}

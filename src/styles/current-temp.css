@@ -46,6 +46,33 @@
 }
 
 
+@media only screen and (min-width: 600px) {
+    .current-container {
+        grid-area: current;
+        height: 100px;
+    }
+
+    .icon-container {
+        grid-area: icon;
+    }
+
+    .main-icon {
+        width: 125px;
+    }
+
+    .current-temperature {
+        font-size: 300px;
+    }
+
+    .current-minus {
+        font-size: 150px;
+    }
+
+    .current-symbol {
+        font-size: 75px;
+    }
+}
+
 
 @-webkit-keyframes pulsate-bck {
     0% {
