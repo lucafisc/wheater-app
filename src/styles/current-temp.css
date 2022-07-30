@@ -57,19 +57,19 @@
     }
 
     .main-icon {
-        width: 125px;
+        width: 95px;
     }
 
     .current-temperature {
-        font-size: 300px;
-    }
-
-    .current-minus {
         font-size: 150px;
     }
 
+    .current-minus {
+        font-size: 50px;
+    }
+
     .degrees-symbol {
-        font-size: 75px;
+        font-size: 30px;
     }
 
     .current-temperature,

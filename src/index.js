@@ -7,7 +7,7 @@ import { userInput } from "./modules/user_input";
 import { getTemperature } from "./modules/get_temperature";
 import { checkData } from "./modules/data";
 import { DOMRender } from "./modules/dom";
-
+import background from "./imgs/02n.svg";
 function init() {
   userInput();
   getTemperature();

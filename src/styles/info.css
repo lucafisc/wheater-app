@@ -97,40 +97,61 @@
 @media only screen and (min-width: 600px) {
     .hour-forecast {
         grid-area: hourly;
-        height: 200px;
+        height: 170px;
         grid-template-columns: 150px;
         grid-auto-columns: 150px;
         border: var(--border-white);
+        border-bottom-left-radius: 0px;
+        border-bottom-right-radius: 0px;
+        margin: 0;
+        align-self: end;
     }
 
     .card-icon,
     .daily-icon {
-        width: 50px;
+        width: 37px;
+        padding: 0;
     }
 
     .card-temp {
-        font-size: 50px;
+        font-size: 37px;
+    }
+
+    .temp-min {
+        font-size: 28px;
     }
 
     .card-text,
     .daily-text {
-        font-size: 25px;
+        font-size: 16px;
+        margin: 0;
     }
 
     .week-forecast {
-        height: 100%;
-        grid-template-columns: 150px;
-        grid-auto-columns: 150px;
+        height: 170px;
+        grid-template-columns: repeat(7, minmax(150px, 1fr));
         grid-auto-flow: column;
+        border-top-left-radius: 0;
+        border-top-right-radius: 0;
+        border-top: none;
+        overflow: scroll;
+
     }
 
     .week-bg {
-        margin: 0 100px;
+        margin: 0 13vw;
+        padding: 0;
         height: 200px;
         background: none;
+
+
     }
 
     .daily-card {
         flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+        padding: 0;
     }
 }
