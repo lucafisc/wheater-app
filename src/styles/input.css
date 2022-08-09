@@ -33,6 +33,7 @@
     }
 
     .city-input {
+        height: 52px;
         max-width: 250px;
         font-size: 20px;
     }

@@ -114,7 +114,11 @@ function getIconSrc(code) {
 
 function newColor(temp) {
   let hue = 220 - temp * 6;
-  let mainColor = `hsl(${hue}deg 96% 47%)`;
+  let lightness = 47;
+  if (hue > 200) {
+    lightness = 70;
+  }
+  let mainColor = `hsl(${hue}deg 96% ${lightness}%)`;
   return mainColor;
 }
 
@@ -125,6 +129,8 @@ function showGradient() {
 
 function updateHourly(props) {
   const hourForecast = document.querySelector(".hour-forecast");
+  hourForecast.classList.remove("no-display");
+
   removeAllChildren(hourForecast);
   for (let i = 0; i < props.hourly.length; i++) {
     let temp = props.hourly[i];

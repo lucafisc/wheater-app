@@ -1,13 +1,11 @@
 .gradients {
     height: 100vh;
     position: absolute;
-    transition: opacity 2s ease-in;
 }
 
 
 .gradient-top {
     position: fixed;
-    transition: background 2s ease-in;
     z-index: -999;
     height: 50vh;
     width: 100%;
@@ -30,7 +28,6 @@
     .gradient-right {
         display: block;
         position: fixed;
-        transition: background 2s ease-in;
         z-index: -500;
         width: 10vw;
         height: 100vh;

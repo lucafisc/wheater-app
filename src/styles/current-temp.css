@@ -3,9 +3,7 @@
 }
 
 .main-icon {
-    color: var(--main-color);
     width: 25vw;
-    filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(288deg) brightness(102%) contrast(102%);
     -webkit-animation: pulsate-bck 5s ease-in-out infinite both;
     animation: pulsate-bck 5s ease-in-out infinite both;
 }
@@ -22,8 +20,6 @@
 .current-temperature,
 .degrees-symbol {
     font-family: "savateregular";
-    transition: all 1s ease-in;
-    /* transition: var(--color-transition); */
     color: var(--main-color);
 }
 
@@ -35,7 +31,6 @@
 .current-temperature {
     font-size: 50vw;
     transform: scaleY(0.5);
-    /* transform-origin: 0 0; */
 }
 
 .degrees-symbol {
@@ -43,6 +38,10 @@
     padding-right: 2vw;
     margin-right: auto;
     align-self: flex-start;
+}
+
+.white-svg-filter {
+    filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(288deg) brightness(102%) contrast(102%);
 }
 
 
