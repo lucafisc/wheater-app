@@ -57,7 +57,8 @@ Users should be able to:
 * Color gradients according to temperature
 * Improved readability using [Colour Contrast](%20https://colourcontrast.cc/)
 * Responsive layout
-<img src="https://i.imgur.com/Y5TADFt.gif" width="500"/>
+<img src="https://media.giphy.com/media/O8LlZkUWKJZa6aO8Rm/giphy.gif" width="500"/>
+
 * Smooth mobile navigation
 <img src="https://media.giphy.com/media/xFIko9qpBQser0gFyJ/giphy.gif" width="300"/>
 
