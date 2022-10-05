@@ -56,13 +56,12 @@ Users should be able to:
 
 * Color gradients according to temperature
 * Improved readability using [Colour Contrast](%20https://colourcontrast.cc/)
-* Smooth mobile navigation
-
-
-<img src="https://media.giphy.com/media/xFIko9qpBQser0gFyJ/giphy.gif" alt="drawing" width="300"/>
-
 * Responsive layout
 <img src="https://i.imgur.com/Y5TADFt.gif" alt="drawing" width="500"/>
+* Smooth mobile navigation
+<img src="https://media.giphy.com/media/xFIko9qpBQser0gFyJ/giphy.gif" alt="drawing" width="300"/>
+
+
 
 
 
