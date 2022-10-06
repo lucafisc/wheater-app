@@ -68,6 +68,7 @@ Users should be able to:
 ### Built with
 
 - Vanilla Javascript
+- Publisher/Subscriber Pattern
 - Semantic HTML5 markup
 - CSS custom properties
 - CSS Grid
